@@ -41,7 +41,7 @@ def train():
                     weights[j] += weights[j] + (alpha * inputs_transformed[i][j] * error)
                     print(f'New weights: {weights}')
         print(f'Total error is {total_error}')
-        if total_error == 0:
+        if total_error < 0.001:
             break
 
 train()
