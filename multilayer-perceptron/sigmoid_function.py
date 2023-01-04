@@ -6,5 +6,5 @@ def sigmoid(sum):
 
 
 # test sigmoid function
-for num in np.arange(-30.5, 30.0, 0.5):
+for num in np.arange(30, -30, -0.5):
     print(f'Sigmoid ({num}) = {sigmoid(num)}')
