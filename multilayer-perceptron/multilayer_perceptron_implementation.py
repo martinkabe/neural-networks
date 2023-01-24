@@ -14,6 +14,7 @@ weights0 = np.array([
 ])
 weights1 = np.array([[-0.017], [-0.893], [0.148]])
 epochs = 100
+learning_rate = 0.3
 
 input_layer = inputs
 
@@ -37,7 +38,18 @@ weights1_T = weights1.T
 delta_output_weights1T = delta_output.dot(weights1_T)
 # print(delta_output_weights1T)
 delta_hidden_layer = sigmoid_derivative(hiden_layer) * delta_output_weights1T
-print(delta_hidden_layer)
+# print(delta_hidden_layer)
+
+## Update weights (update_weights_1.png)
+# 1. input * delta
+# print(hiden_layer)
+# print(delta_output)
+hidden_layerT = hiden_layer.T
+input_x_delta1 = hidden_layerT.dot(delta_output)
+# print(input_x_delta1)
+
+weights1 = weights1 + (input_x_delta1 * learning_rate)
+print(weights1)
 
 
 for epoch in range(epochs):
